@@ -5,6 +5,7 @@
 #include <sstream>
 #include <algorithm>
 #include <vector>
+#include <sbe_interfaces.hpp>
 
 namespace openpower
 {
@@ -30,10 +31,10 @@ namespace fifoutils
  *
  * @return Response buffer returned by the SBE for the input command.
  */
-std::vector<sbe_word_t>  write(const char* devPath,
-                               const sbe_word_t* cmdBuffer,
-                               const size_t cmdBufLen,
-                               const size_t respBufLen);
+std::vector<sbe_word_t>  writeToFifo(const char* devPath,
+                                     const sbe_word_t* cmdBuffer,
+                                     const size_t cmdBufLen,
+                                     const size_t respBufLen);
 
 /**
  * @brief Helper function for invokeSBEChipOperation(), to parse the data
@@ -72,8 +73,9 @@ void invokeSBEChipOperation(const char* devPath,
 {
     //Write and read from the FIFO device.
     std::vector<sbe_word_t> sbeFifoResp;
-    sbeFifoResp = fifoutils::write(devPath, request.data(), request.size(),
-                                   chipOpData.size());
+    sbeFifoResp = fifoutils::writeToFifo(devPath, (uint32_t*)request.data(),
+                                         request.size(),
+                                         chipOpData.size());
 
     //Parse the obtained data
     auto response = fifoutils::parseResponse(sbeFifoResp);
