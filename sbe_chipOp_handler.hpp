@@ -5,6 +5,7 @@
 #include <sstream>
 #include <algorithm>
 #include <vector>
+#include <sbe_interfaces.hpp>
 
 namespace openpower
 {
@@ -31,10 +32,10 @@ namespace internal
  *
  * @return Response buffer returned by the SBE for the input command.
  */
-std::vector<sbe_word_t> write(const char* devPath,
-                              const sbe_word_t* cmdBuffer,
-                              size_t cmdBufLen,
-                              size_t respBufLen);
+std::vector<sbe_word_t> writeToFifo(const char* devPath,
+                                    const sbe_word_t* cmdBuffer,
+                                    const size_t cmdBufLen,
+                                    const size_t respBufLen);
 
 /**
  * @brief Helper function for invokeSBEChipOperation(), to parse the data
@@ -74,18 +75,19 @@ inline void invokeSBEChipOperation(const char* devPath,
                                    std::array<sbe_word_t, S2>& chipOpData)
 {
     //Write and read from the FIFO device.
-    auto sbeFifoResp = internal::write(devPath, request.data(), request.size(),
-                                       chipOpData.size());
+    auto sbeFifoResp = internal::writeToFifo(devPath, request.data(),
+                       request.size(), chipOpData.size());
 
     //Parse the obtained data
     auto response = internal::parseResponse(sbeFifoResp);
 
-    if (response.size() != chipOpData.size())
+    //Above interface would have stripped the SBE header content.
+    if (response.size() > chipOpData.size())
     {
         //TODO:use elog infrastructure
         std::ostringstream errMsg;
         errMsg << "Obtained chip operation response length (" << response.size()
-               << "from SBE is not equal to the expected length of data (" <<
+               << "from SBE is greater than maximum expected lenght:" <<
                chipOpData.size();
 
         throw std::runtime_error(errMsg.str().c_str());
