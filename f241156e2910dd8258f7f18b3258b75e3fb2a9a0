@@ -1,0 +1,10 @@
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Verified+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+1: Joel Stanley <joel@jms.id.au>
+Code-Review+1: Murulidhar Nataraju <murulidhar@in.ibm.com>
+Code-Review+2: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Submitted-by: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Submitted-at: Mon, 21 May 2018 17:56:51 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/10642
+Project: openbmc/openpower-sbe-interface
+Branch: refs/heads/master
