@@ -93,6 +93,68 @@ void write(const char* devPath,
         htobe32(upper(data)),
         htobe32(lower(data))
     };
+  
+    //Buffer to hold the SBE response status
+    const size_t respLength = RESP_HEADER_LEN;
+    std::array<sbe_word_t, respLength> response = {};
+
+    //Write the command buffer to the SBE FIFO and obtain the response from the
+    //SBE FIFO device.This interface will parse the obtained SBE response and
+    //any internal SBE failures will be communicated via exceptions
+    invokeSBEChipOperation(devPath, command, response);
+}
+} // namespace scom
+
+namespace threadcontrol
+{
+
+//constant specific to thread control operations
+static constexpr sbe_word_t RESET_OPCODE  = 0x0000A701;
+static constexpr size_t RESET_CMD_LENGTH = 0x3;
+static constexpr uint8_t NO_EXIT_ON_FIRST_ERROR = 0x1;
+static constexpr uint8_t SRESET_OPERATION = 0x3;
+
+//Bitmap for building the command request for
+//instruction control Chip-Op
+typedef union
+{
+  uint32_t l_data;
+  struct __attribute__((__packed__))
+  {
+     uint8_t   threadOps:4;
+     uint8_t   threadId:4;
+     uint8_t   coreChipletId:8;
+     uint8_t   mode:4;
+     uint16_t  reserved:12;
+  };
+}instControlWord_t;
+
+
+void reset(const char* devPath,
+           const uint8_t coreChipletId,
+           const uint8_t threadNum)
+{
+    //Validate input device path
+    if (devPath == nullptr)
+    {
+        throw std::runtime_error("NULL FIFO device path");
+    }
+
+    //Build the request to perform the S-RESET on the thread related to the
+    //input core.
+    instControlWord_t l_word;
+    l_word.l_data = 0;
+    l_word.mode = NO_EXIT_ON_FIRST_ERROR;
+    l_word.coreChipletId  = coreChipletId;
+    l_word.threadId = threadNum;
+    l_word.threadOps = SRESET_OPERATION;
+
+    std::array<sbe_word_t, RESET_CMD_LENGTH> command =
+    {
+        static_cast<sbe_word_t>(htobe32(RESET_CMD_LENGTH)),
+        htobe32(RESET_OPCODE),
+        htobe32(l_word.l_data)
+    };
 
     //Buffer to hold the SBE response status
     const size_t respLength = RESP_HEADER_LEN;
@@ -104,6 +166,6 @@ void write(const char* devPath,
     invokeSBEChipOperation(devPath, command, response);
 }
 
-} // namespace scom
+} //namespace threadcontrol
 } // namespace sbe
 } // namespace openpower

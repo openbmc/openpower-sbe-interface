@@ -167,8 +167,8 @@ void parseResponse(std::vector<sbe_word_t>& sbeDataBuf)
         //TODO:use elog infrastructure to return the SBE and Hardware procedure
         //FFDC container back to the caller.
         std::ostringstream errMsg;
-        errMsg << "Chip operation failed with SBE response code:" << l_priSecResp
-               << ".Length of FFDC data of obtained:" << ffdcLen;
+        errMsg << "Chip operation failed with SBE response code:" <<std::hex
+               << l_priSecResp << " Length of FFDC data of obtained:" <<ffdcLen;
         throw std::runtime_error(errMsg.str().c_str());
     }
 
