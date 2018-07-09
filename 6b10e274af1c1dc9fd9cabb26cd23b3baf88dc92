@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eac9d5ad_98b782e3",
+        "filename": "sbe_interfaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2018-07-09T07:15:34Z",
+      "side": 1,
+      "message": "Change starts here only. YOu see the above because of the diff.... shown by the tool",
+      "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    }
+  ]
+}
