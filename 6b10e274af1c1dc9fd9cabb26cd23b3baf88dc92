@@ -33,6 +33,24 @@
       "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a707e936_3a5ed7a4",
+        "filename": "sbe_interfaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2018-07-13T06:48:43Z",
+      "side": 1,
+      "message": "1) I meant to say the new change is to support the content in the namespace threadControl ie line 108 to 167. The above lines from 96 to 106 are not modified/removed . You can see them in the left hand side diff window. Its just how the diff tool is showing the difference ..\n\n2) Now the actual change is to support SREST SBE chipoperation.",
+      "parentUuid": "f7a61fba_9b040729",
+      "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
