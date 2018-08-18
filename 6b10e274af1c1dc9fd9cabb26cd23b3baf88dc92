@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ac0f2fb_0bfc69e0",
+        "filename": "sbe_chipOp_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2018-08-18T17:05:50Z",
+      "side": 1,
+      "message": "Doesn\u0027t look like this change belongs in this commit.",
+      "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eecfbefa_c8220366",
+        "filename": "sbe_interfaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2018-08-18T17:05:50Z",
+      "side": 1,
+      "message": "Still not following why this is showing up as delta. It shouldn\u0027t if it existed previously.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 1
+      },
+      "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eac9d5ad_98b782e3",
         "filename": "sbe_interfaces.cpp",
         "patchSetId": 1
@@ -48,6 +88,52 @@
       "side": 1,
       "message": "1) I meant to say the new change is to support the content in the namespace threadControl ie line 108 to 167. The above lines from 96 to 106 are not modified/removed . You can see them in the left hand side diff window. Its just how the diff tool is showing the difference ..\n\n2) Now the actual change is to support SREST SBE chipoperation.",
       "parentUuid": "f7a61fba_9b040729",
+      "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8088c485_cf71c8e3",
+        "filename": "sbe_interfaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2018-08-18T17:05:50Z",
+      "side": 1,
+      "message": "Do you need to care about endian-ness?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 27
+      },
+      "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a66a2e89_2a2d0e13",
+        "filename": "sbe_interfaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2018-08-18T17:05:50Z",
+      "side": 1,
+      "message": "is this the only field used? why did you need to define instControlWord_t?",
+      "range": {
+        "startLine": 156,
+        "startChar": 23,
+        "endLine": 156,
+        "endChar": 29
+      },
       "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
