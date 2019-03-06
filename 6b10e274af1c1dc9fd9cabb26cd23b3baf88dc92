@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3a3c9c61_e0626208",
+        "filename": "sbe_chipOp_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2019-03-06T13:27:16Z",
+      "side": 1,
+      "message": "Fixed this to display the error code is correct format. Found this as part of my unit testing",
+      "parentUuid": "9ac0f2fb_0bfc69e0",
+      "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eecfbefa_c8220366",
         "filename": "sbe_interfaces.cpp",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2018-08-18T17:05:50Z",
       "side": 1,
       "message": "Still not following why this is showing up as delta. It shouldn\u0027t if it existed previously.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 1
+      },
+      "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80521e48_e3ea17dd",
+        "filename": "sbe_interfaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2019-03-06T13:27:16Z",
+      "side": 1,
+      "message": "If you see we have created a new name space and closed the scom namespace and hence it shows as diff if you see on the left side line 97..104 is already present..",
+      "parentUuid": "eecfbefa_c8220366",
       "range": {
         "startLine": 97,
         "startChar": 0,
@@ -128,6 +170,30 @@
       "writtenOn": "2018-08-18T17:05:50Z",
       "side": 1,
       "message": "is this the only field used? why did you need to define instControlWord_t?",
+      "range": {
+        "startLine": 156,
+        "startChar": 23,
+        "endLine": 156,
+        "endChar": 29
+      },
+      "revId": "6b10e274af1c1dc9fd9cabb26cd23b3baf88dc92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c15e1124_dcecb67f",
+        "filename": "sbe_interfaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2019-03-06T13:27:16Z",
+      "side": 1,
+      "message": "Its a union ... and when we support other forms of instruction control those inst types will differ... It makes setting selective bits of those structure easy and readable",
+      "parentUuid": "a66a2e89_2a2d0e13",
       "range": {
         "startLine": 156,
         "startChar": 23,
